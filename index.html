@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English with Mixlass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            color: #fff;
+            background-color: #f97316;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        .main-title {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        .subtitle {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+        .section {
+            margin-top: 2rem;
+        }
+        .section-title {
+            background-color: #0b1a30;
+            color: #fff;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+        }
+        .task-number {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .question {
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+        .question-item {
+            margin-bottom: 1rem;
+        }
+        .question-item input {
+            border: 1px solid #d1d5db;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            outline: none;
+            width: 100%; /* Make input full width */
+        }
+        .question-item input:focus {
+            border-color: #f97316;
+        }
+        .question-item .feedback {
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        .correct {
+            color: #10b981;
+        }
+        .incorrect {
+            color: #ef4444;
+        }
+        .explanation {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-left: 0;
+            margin-top: 0.25rem;
+        }
+        .options-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .option-button {
+            background-color: #f3f4f6;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-button:hover {
+            background-color: #e5e7eb;
+        }
+        .option-button.selected {
+            background-color: #f97316;
+            color: #fff;
+            border-color: #f97316;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .action-button {
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            color: #fff;
+            border-radius: 0.75rem;
+            transition: background-color 0.2s;
+        }
+        .check-button {
+            background-color: #f97316;
+        }
+        .check-button:hover {
+            background-color: #e56613;
+        }
+        .reset-button {
+            background-color: #4b5563;
+        }
+        .reset-button:hover {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">English with Mixlass</h1>
+            <p class="subtitle">LEARN.SHARE.CONNECT</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">GRAMMAR</h2>
+            <div class="mt-4">
+                <p class="text-xl font-bold">present simple be: I, you</p>
+            </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="section">
+            <div class="task-number">3</div>
+            <p class="mt-2">Put the words in the correct order to make sentences.</p>
+            <div class="mt-4">
+                <div class="question-item">
+                    <div class="font-semibold">1. from / I'm / India .</div>
+                    <input type="text" id="q3-1" class="mt-2">
+                    <div id="feedback3-1" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">2. not / from / Poland / I'm .</div>
+                    <input type="text" id="q3-2" class="mt-2">
+                    <div id="feedback3-2" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">3. you / are / student / a ?</div>
+                    <input type="text" id="q3-3" class="mt-2">
+                    <div id="feedback3-3" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">4. are / you / South Korean .</div>
+                    <input type="text" id="q3-4" class="mt-2">
+                    <div id="feedback3-4" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">5. aren't / Vietnamese / you .</div>
+                    <input type="text" id="q3-5" class="mt-2">
+                    <div id="feedback3-5" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">6. the / you / are / US / from ?</div>
+                    <input type="text" id="q3-6" class="mt-2">
+                    <div id="feedback3-6" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">7. not / teacher / a / I'm .</div>
+                    <input type="text" id="q3-7" class="mt-2">
+                    <div id="feedback3-7" class="feedback"></div>
+                </div>
+                <div class="question-item">
+                    <div class="font-semibold">8. from / you / are / where ?</div>
+                    <input type="text" id="q3-8" class="mt-2">
+                    <div id="feedback3-8" class="feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="section">
+            <div class="task-number">4</div>
+            <p class="mt-2">The sentences below have a mistake. Choose the best option to correct the mistake.</p>
+            <div class="mt-4">
+                <div class="question">
+                    <span class="font-semibold">1.</span> Hello, I Pablo. Nice to meet you.
+                    <div class="options-group" data-correct-answer="a" data-question-id="q4-1">
+                        <button class="option-button">a) I'm</button>
+                        <button class="option-button">b) I are</button>
+                        <button class="option-button">c) am I</button>
+                    </div>
+                    <div id="feedback4-1" class="feedback mt-2"></div>
+                </div>
+                <div class="question">
+                    <span class="font-semibold">2.</span> You not from Japan.
+                    <div class="options-group" data-correct-answer="b" data-question-id="q4-2">
+                        <button class="option-button">a) You no</button>
+                        <button class="option-button">b) You aren't</button>
+                        <button class="option-button">c) You am not</button>
+                    </div>
+                    <div id="feedback4-2" class="feedback mt-2"></div>
+                </div>
+                <div class="question">
+                    <span class="font-semibold">3.</span> You are from Ankara?
+                    <div class="options-group" data-correct-answer="b" data-question-id="q4-3">
+                        <button class="option-button">a) You</button>
+                        <button class="option-button">b) Are you</button>
+                        <button class="option-button">c) Be you</button>
+                    </div>
+                    <div id="feedback4-3" class="feedback mt-2"></div>
+                </div>
+                <div class="question">
+                    <span class="font-semibold">4.</span> Where you from?
+                    <div class="options-group" data-correct-answer="c" data-question-id="q4-4">
+                        <button class="option-button">a) You are</button>
+                        <button class="option-button">b) Where you are</button>
+                        <button class="option-button">c) Where are you</button>
+                    </div>
+                    <div id="feedback4-4" class="feedback mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons-container">
+            <button id="checkButton" class="action-button check-button">Проверить</button>
+            <button id="resetButton" class="action-button reset-button">Сбросить</button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Answers for Task 3, now supporting multiple correct forms (e.g., contracted and non-contracted)
+            const answers3 = {
+                'q3-1': ["I'm from India.", "I am from India."],
+                'q3-2': ["I'm not from Poland.", "I am not from Poland."],
+                'q3-3': ["Are you a student?"],
+                'q3-4': ["You are South Korean."],
+                'q3-5': ["You aren't Vietnamese.", "You are not Vietnamese."],
+                'q3-6': ["Are you from the US?"],
+                'q3-7': ["I'm not a teacher.", "I am not a teacher."],
+                'q3-8': ["Where are you from?"]
+            };
+
+            // Explanations for Task 3
+            const explanations3 = {
+                'q3-1': "Правильный порядок слов в утвердительном предложении: подлежащее + глагол to be + остальные слова.",
+                'q3-2': "Правильный порядок слов в отрицательном предложении: подлежащее + глагол to be + not + остальные слова.",
+                'q3-3': "Для вопроса с глаголом 'to be' глагол ставится перед подлежащим: Are you a student?",
+                'q3-4': "Правильный порядок слов в утвердительном предложении: подлежащее + глагол to be + остальные слова.",
+                'q3-5': "Правильный порядок слов в отрицательном предложении: подлежащее + глагол to be + not + остальные слова.",
+                'q3-6': "Для вопроса с глаголом 'to be' глагол ставится перед подлежащим: Are you from the US?",
+                'q3-7': "Правильный порядок слов в отрицательном предложении: подлежащее + глагол to be + not + остальные слова.",
+                'q3-8': "В вопросе с 'where' глагол 'to be' ставится после 'where' и перед подлежащим: Where are you from?"
+            };
+
+            // Answers for Task 4
+            const answers4 = {
+                'q4-1': 'a',
+                'q4-2': 'b',
+                'q4-3': 'b',
+                'q4-4': 'c'
+            };
+
+            // Explanations for Task 4
+            const explanations4 = {
+                'q4-1': "Правильная форма глагола 'to be' для 'I' — 'am'. Обычно используется сокращение I'm.",
+                'q4-2': "Правильная отрицательная форма для 'you' — 'are not', или сокращенно 'aren't'.",
+                'q4-3': "Это вопросительное предложение, поэтому 'Are' должно стоять перед 'you'.",
+                'q4-4': "Это вопросительное предложение. Правильный порядок слов: Where + are + you + from?"
+            };
+
+            // Event listeners for Task 4 buttons
+            document.querySelectorAll('.options-group').forEach(group => {
+                group.addEventListener('click', (e) => {
+                    const button = e.target;
+                    if (button.tagName === 'BUTTON') {
+                        // Deselect other buttons in the group
+                        group.querySelectorAll('.option-button').forEach(btn => {
+                            btn.classList.remove('selected');
+                        });
+                        // Select the clicked button
+                        button.classList.add('selected');
+                    }
+                });
+            });
+
+            // Clean string for comparison
+            const normalizeString = (str) => {
+                return str.toLowerCase().replace(/[.,?!'’`‘]/g, '').trim().replace(/\s+/g, ' ');
+            };
+
+            // Check answers
+            document.getElementById('checkButton').addEventListener('click', () => {
+                // Task 3
+                for (const [id, correctAnswers] of Object.entries(answers3)) {
+                    const input = document.getElementById(id);
+                    const feedback = document.getElementById(`feedback${id.substring(1)}`);
+                    const userInput = normalizeString(input.value);
+                    
+                    // Check if any of the possible correct answers match the user's input
+                    const isCorrect = correctAnswers.some(answer => normalizeString(answer) === userInput);
+
+                    if (isCorrect) {
+                        feedback.textContent = '✅ Правильно!';
+                        feedback.classList.remove('incorrect');
+                        feedback.classList.add('correct');
+                    } else {
+                        feedback.textContent = '❌ Неправильно.';
+                        feedback.classList.remove('correct');
+                        feedback.classList.add('incorrect');
+                        // Display explanation
+                        const explanationId = `explanation${id.substring(1)}`;
+                        let explanationDiv = document.getElementById(explanationId);
+                        if (!explanationDiv) {
+                            explanationDiv = document.createElement('div');
+                            explanationDiv.id = explanationId;
+                            explanationDiv.classList.add('explanation');
+                            input.parentNode.after(explanationDiv);
+                        }
+                        explanationDiv.textContent = explanations3[id];
+                        explanationDiv.style.display = 'block';
+                    }
+                }
+
+                // Task 4
+                for (const [id, answer] of Object.entries(answers4)) {
+                    const group = document.querySelector(`.options-group[data-question-id='${id}']`);
+                    const selectedButton = group.querySelector('.option-button.selected');
+                    const feedback = document.getElementById(`feedback${id.substring(1)}`);
+
+                    if (selectedButton) {
+                        const buttonText = selectedButton.textContent.trim().substring(0, 1).toLowerCase();
+                        if (buttonText === answer) {
+                            feedback.textContent = '✅ Правильно!';
+                            feedback.classList.remove('incorrect');
+                            feedback.classList.add('correct');
+                        } else {
+                            feedback.textContent = '❌ Неправильно.';
+                            feedback.classList.remove('correct');
+                            feedback.classList.add('incorrect');
+                            // Display explanation
+                            const explanationId = `explanation${id.substring(1)}`;
+                            let explanationDiv = document.getElementById(explanationId);
+                            if (!explanationDiv) {
+                                explanationDiv = document.createElement('div');
+                                explanationDiv.id = explanationId;
+                                explanationDiv.classList.add('explanation');
+                                group.after(explanationDiv);
+                            }
+                            explanationDiv.textContent = explanations4[id];
+                            explanationDiv.style.display = 'block';
+                        }
+                    } else {
+                        feedback.textContent = '❌ Выберите вариант.';
+                        feedback.classList.remove('correct');
+                        feedback.classList.add('incorrect');
+                    }
+                }
+            });
+
+            // Reset answers
+            document.getElementById('resetButton').addEventListener('click', () => {
+                // Task 3
+                document.querySelectorAll('input[id^="q3-"]').forEach(input => {
+                    input.value = '';
+                    const feedback = document.getElementById(`feedback${input.id.substring(1)}`);
+                    feedback.textContent = '';
+                    const explanation = document.getElementById(`explanation${input.id.substring(1)}`);
+                    if (explanation) {
+                        explanation.style.display = 'none';
+                    }
+                });
+
+                // Task 4
+                document.querySelectorAll('.option-button').forEach(button => {
+                    button.classList.remove('selected');
+                });
+                document.querySelectorAll('div[id^="feedback4-"]').forEach(feedback => {
+                    feedback.textContent = '';
+                    const explanation = document.getElementById(`explanation${feedback.id.substring(1)}`);
+                    if (explanation) {
+                        explanation.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
